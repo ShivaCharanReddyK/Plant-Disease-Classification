@@ -10,14 +10,11 @@ app = Flask(__name__)
 CORS(app)
 
 MODEL = tf.keras.models.load_model(
-    "C:\\Users\\kalle\\TPDC\\saved_models\\tomato5.h5")
+    "tomato5.h5")
     
 
-CLASS_NAMES = ['Tomato_Early_blight',
- 'Tomato_Late_blight',
- 'Tomato_Leaf_Mold',
- 'Tomato__Tomato_YellowLeaf__Curl_Virus',
- 'Tomato_healthy']
+CLASS_NAMES = ['Tomato_Early_blight', 'Tomato_Late_blight', 'Tomato_Leaf_Mold', 'Tomato__Tomato_YellowLeaf__Curl_Virus',
+               'Tomato_healthy']
 
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
