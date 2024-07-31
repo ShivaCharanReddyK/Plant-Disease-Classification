@@ -225,6 +225,34 @@ for images, labels in test_ds.take(1):
         plt.axis("off")
 ```
 
+## Running the Flask Web Application
+
+To run the model in a web application, use the Flask framework.
+
+### Requirements
+
+1. Flask
+2. Flask-CORS
+3. TensorFlow
+4. Pillow
+5. NumPy
+
+### Installation
+
+Use pip to install the required libraries.
+
+```bash
+pip install flask flask-cors tensorflow pillow numpy
+```
+
+### Running the Flask Application
+
+To run the Flask application, execute the following command:
+
+```bash
+python app.py
+```
+
 ## Conclusion
 
 By following the steps outlined in this guide, you can create, train, evaluate, and save a model for classifying plant diseases. This guide also includes steps to load the saved model and make predictions on new data.
