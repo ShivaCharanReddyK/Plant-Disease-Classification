@@ -9,34 +9,30 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-MODEL = tf.keras.models.load_model(
-    "tomato5.h5")
-    
+# Load the model without compiling
+MODEL = tf.keras.models.load_model("tomato5.h5", compile=False)
 
+# Define class names
 CLASS_NAMES = ['Tomato_Early_blight', 'Tomato_Late_blight', 'Tomato_Leaf_Mold', 'Tomato__Tomato_YellowLeaf__Curl_Virus',
                'Tomato_healthy']
 
+# Set maximum content length for file uploads
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
-
 
 @app.route("/", methods=["GET"])
 def index():
     return app.send_static_file("index.html")
 
-
 @app.route("/ping", methods=["GET"])
 def ping():
     return "Hello, I am alive"
-
 
 def read_file_as_image(data) -> np.ndarray:
     image = np.array(
         Image.open(BytesIO(data)).convert(
             "RGB").resize((256, 256))  # image resizing
     )
-
     return image
-
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -52,7 +48,6 @@ def predict():
         'class': predicted_class,
         'confidence': float(confidence)
     }
-
 
 if __name__ == "__main__":
     app.run(
