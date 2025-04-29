@@ -1,7 +1,7 @@
 
 ---
 # Smart AgriAid: Plant Disease Detection System
-# Create Plant Disease Classification Model
+# Plant Disease Classification Model
 
 This repository contains a Jupyter notebook for creating and saving a deep learning model to classify tomato diseases using TensorFlow and Keras. The model is trained on a dataset of tomato leaf images, which are categorized into five classes.
 
