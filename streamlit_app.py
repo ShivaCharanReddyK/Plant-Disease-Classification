@@ -30,18 +30,18 @@ CLASS_NAMES = [
 ]
 
 # File uploader
-uploaded_file = st.file_uploader(
+uploaded_file = st. file_uploader(
     "Choose a tomato leaf image.. .", 
     type=['jpg', 'png', 'jpeg']
 )
 
-if uploaded_file is not None:
+if uploaded_file is not None: 
     # Display image
-    col1, col2 = st. columns(2)
+    col1, col2 = st.columns(2)
     
     with col1:
         image = Image.open(uploaded_file).convert("RGB")
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.image(image, caption="Uploaded Image", use_column_width=True)  # ✅ Changed this line
     
     # Make prediction
     with st.spinner('Analyzing image...'):
@@ -53,7 +53,7 @@ if uploaded_file is not None:
         # Predict
         predictions = MODEL.predict(img_batch)
         predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
-        confidence = np. max(predictions[0])
+        confidence = np.max(predictions[0])
     
     # Display results
     with col2:
